@@ -50,7 +50,18 @@ $(document).ready(function(){
 
   				$("#btn-signin").click(function(){
 
-  					alert("Fuck please enter password !");
+  					//alert("Fuck please enter password !");
+
+  					var pwd = $("#inputPassword").val();
+  					//ert(pwd);
+
+  					if (pwd == "apple"){
+
+  						window.location.href = "../home";
+  					}else{
+
+  						alert("Sorry your password is incorrect !");
+  					}
 
   				});
 
