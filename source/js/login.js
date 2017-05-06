@@ -12,7 +12,16 @@ function change_profile_img(agr) {
 }
 
 
+function leave(){
+
+
+}
+
+
 $(document).ready(function(){
+
+       
+        //$("#error_info").html("");
 
   			/*	$("#inputEmail").focusin(function(){
 
@@ -23,7 +32,9 @@ $(document).ready(function(){
 
   				$("#inputEmail").focusout(function(){
 
-  					if (usr == "SOVANN"){
+
+
+   			 	/*	if (usr == "SOVANN"){
   						$("#profile-img").attr('src','../source/img/sovann.jpg');
   					}else if(usr == "MENGHOUR"){
 
@@ -36,8 +47,32 @@ $(document).ready(function(){
   					else{
   					    $("#profile-img").attr('src','../source/img/login1.png');	
   					}
+           
 
-  					
+  				*/
+            //alert("Testing");
+            //alert($("#inputEmail").val());
+            //alert($("#pro-img").html())
+            $.ajax({
+
+                type: "GET",
+                url: "../source/config/getuser.php?q="+ $("#inputEmail").val(),
+                dataType: "HTML",
+                success: function(response){
+
+                   //alert (response);
+
+                    $("#pro-img").html(response);
+                    $("#error_info").html("");
+
+                 /* if (response == '<img id="profile-img" class="profile-img-card" src="..\source\img\login1.png" />'){
+
+                      $("#error_info").html("Invalid username !");
+
+                    }*/
+                }
+
+            });
 
   				});
 
@@ -50,18 +85,12 @@ $(document).ready(function(){
 
   				$("#btn-signin").click(function(){
 
-  					//alert("Fuck please enter password !");
+            var pwd = $("#inputPassword").val();
 
-  					var pwd = $("#inputPassword").val();
-  					//ert(pwd);
+            if (pwd == '123'){
 
-  					if (pwd == "apple"){
-
-  						window.location.href = "../home";
-  					}else{
-
-  						alert("Sorry your password is incorrect !");
-  					}
+              
+            }
 
   				});
 
