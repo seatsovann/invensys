@@ -3,7 +3,14 @@
   require_once("../source/config/connection.php");
   //require_once("../source/config/session.php");
   $error = "";
-  session_start();
+  
+  session_start();  
+
+  if (isset($_SESSION["LOGIN_USR"])){
+    header("location:../home");
+  }
+
+  
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
@@ -20,8 +27,11 @@
         
           if ($datacount == 1){
 
-              $_SESSION['LOGIN_USR'] = $data['usr_name'];
-              header("location:../home");
+              $_SESSION["LOGIN_USR"] = $data['usr_name'];
+
+              //echo '$_SESSION["LOGIN_USR"]';
+             header("location:../home");
+
 
           }else{
 
@@ -43,6 +53,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="..\source\style\login.css">
+  <link rel="shortcut icon" href="../source/img/fav.jpg" type="image/x-icon"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="..\source\js\login.js"></script>
@@ -67,16 +78,16 @@
                 <span id="reauth-email" class="reauth-email"></span>
                 <input type="text" name="usrname" id="inputEmail" class="form-control" class="text-uppercase" placeholder="Username" required autofocus  ">
                 <input type="password" name = "pwd" id="inputPassword" class="form-control" placeholder="Password" required>
-                <div id="remember" class="checkbox" >
+            <!--    <div id="remember" class="checkbox" >
                     <label>
                         <input type="checkbox" value="remember-me" > Remember me 
                     </label>
-                </div>
+                </div> -->
                 <button type="submit" id="btn-signin" class="btn btn-lg btn-primary btn-block btn-signin" >Sign in</button>
             </form><!-- /form -->
-            <a href="#" class="forgot-password" id="forgot-pwd">
+          <!--  <a href="#" class="forgot-password" id="forgot-pwd">
                 Forgot the password?
-            </a
+            </a -->
         </div><!-- /card-container -->
     </div><!-- /container -->
 

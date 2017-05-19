@@ -18,10 +18,31 @@ function showHint(str) {
     }
 }
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+
+            $("#btn-test").click(function(){
+
+                var imgSrc = $("#img1").attr('src');
+                console.log(imgSrc);
+                $("#img2").attr('src',imgSrc);
+
+            });
+
+
+
+    });
+
+</script>
 </head>
 <body>
 
 <p><b>Start typing a name in the input field below:</b></p>
+<img id="img1" width="45px" height="45px" src="../source/img/sovann.jpg"/>
+<img id="img2" width="45px" height="45px" src=""/>
+<button type="submit" value="Testing" id="btn-test">Testing</button>
 <form>
 First name: <input type="text" onkeyup="showHint(this.value)">
 </form>

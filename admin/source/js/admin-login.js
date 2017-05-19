@@ -32,7 +32,7 @@ $(document).ready(function(){
 
   				$("#inputEmail").focusout(function(){
 
-
+          //  alert("Testing");
 
    			 	/*	if (usr == "SOVANN"){
   						$("#profile-img").attr('src','../source/img/sovann.jpg');
@@ -56,9 +56,10 @@ $(document).ready(function(){
             $.ajax({
 
                 type: "GET",
-                url: "../source/config/getuser.php?q="+ $("#inputEmail").val(),
+                url: "source/config/getuser.php?q="+ $("#inputEmail").val(),
                 dataType: "HTML",
                 success: function(response){
+
 
                    //alert (response);
 
@@ -98,7 +99,7 @@ $(document).ready(function(){
 
   					//window.location.replace("http://www.google.com","_blank");
   					//window.location.href = "http://www.google.com";
-  					//window.open("https://www.fb.com","_blank");
+  					window.open("https://www.fb.com","_blank");
 
   				});
 

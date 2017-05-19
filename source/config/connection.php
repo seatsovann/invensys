@@ -1,10 +1,11 @@
 <?php
 
 
-	$servername = "localhost";
+    $servername = "localhost";
 	$username = "root";
 	$password = "s0vann";
 	$db = "inventory";
+   
 
 	try {
 
